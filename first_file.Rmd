@@ -23,7 +23,11 @@ knitr::opts_chunk$set(echo = TRUE)
   
 
 
-2.a numbered list (10 pt)
+### 2. a numbered list of the names of my cats
+
+1. Fidelio
+2. Chili
+3. Luzie
 
 3.some words italicized (5 pt)
 
