@@ -9,6 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Please complete all the tasks listed below. After completing the tasks download the .Rmd file and upload in the peer review item for grading.
+
+# Additionally please write text between the code chunks explaining what each code chunk is about
+
 1.a bulleted list with sub-bullets under at least one item (10 pt)
 
 - Peugeot
@@ -21,11 +25,15 @@ knitr::opts_chunk$set(echo = TRUE)
   - Fabia
   - Octavia
 
+Unordered list items need to start with *, -, or +.
+
 2.a numbered list (10 pt)
 
 1. Fidelio
 2. Chili
 3. Luzie
+
+Ordered list items start with the numbers.
 
 3.some words italicized (5 pt)
 
@@ -33,11 +41,15 @@ knitr::opts_chunk$set(echo = TRUE)
 *Venice*
 *Florence*
 
+To write words in italics you have to use either asterisks * or underscores _.
+
 4.some words in bold print (5 pt)
 
 **Chengdu**
 **Chongqing**
 **Guangdong**
+
+To make text bold you can use double asterisks ** or double underscores __.
 
 5. two levels of headers (10 pt)
 
@@ -45,7 +57,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Second-level header
 
+The number of # symbols you use at the beginning of the line determines the level of the header.
+
 6.the results of some R code without showing the code (10 pt)
+
+```{r, echo=FALSE}
+x <- c(1:6)
+x
+```
 
 7.a table of text at least 3 columns wide and 3 rows long (10 pt)
 
