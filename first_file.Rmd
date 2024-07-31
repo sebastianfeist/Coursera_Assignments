@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 1. a bulleted list of three car manufacturers with 2 sub-bullets under all three
+### 1. a bulleted list of three car manufacturers with 2 sub-bullets under all three
 
 - Peugeot
   - 208
@@ -29,7 +29,11 @@ knitr::opts_chunk$set(echo = TRUE)
 2. Chili
 3. Luzie
 
-3.some words italicized (5 pt)
+### 3. Cities in Italy I visited italicized
+
+- *Rome*
+- *Venice*
+- *Florence*
 
 4.some words in bold print (5 pt)
 
