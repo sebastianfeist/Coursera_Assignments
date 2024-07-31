@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### 1. a bulleted list of three car manufacturers with 2 sub-bullets under all three
+1.a bulleted list with sub-bullets under at least one item (10 pt)
 
 - Peugeot
   - 208
@@ -20,24 +20,30 @@ knitr::opts_chunk$set(echo = TRUE)
 - Skoda
   - Fabia
   - Octavia
-  
 
-
-### 2. a numbered list of the names of my cats
+2.a numbered list (10 pt)
 
 1. Fidelio
 2. Chili
 3. Luzie
 
-### 3. Cities in Italy I visited italicized
+3.some words italicized (5 pt)
 
-- *Rome*
-- *Venice*
-- *Florence*
+*Rome*
+*Venice*
+*Florence*
 
 4.some words in bold print (5 pt)
 
-5.two levels of headers (10 pt)
+**Chengdu**
+**Chongqing**
+**Guangdong**
+
+5. two levels of headers (10 pt)
+
+# First-level header
+
+## Second-level header
 
 6.the results of some R code without showing the code (10 pt)
 
