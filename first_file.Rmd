@@ -96,7 +96,7 @@ f <- function(x) {
 x <- seq(-10, 10)
 
 # this plots the function
-plot(x, f(x), type = "l", xlab = "x", ylab = "f(x)", main = "Plot of x^2")
+plot(x, f(x))
 ```
 
 9.your session info (as output from R) (10 pt)
