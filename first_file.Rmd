@@ -2,7 +2,9 @@
 title: "First Assignment"
 author: "Sebastian Feist"
 date: "07/31/2024"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -100,10 +102,13 @@ plot(x, f(x), type = "l", xlab = "x", ylab = "f(x)", main = "Plot of x^2")
 9.your session info (as output from R) (10 pt)
 
 ```{r}
+# this command gets the session info from my system
 sessionInfo()
 ```
 
 10.Execution of .Rmd file (10 pt)
+
+
 
 11. Upload and execution of knitted pdf (10 pt)
 
