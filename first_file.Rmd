@@ -1,7 +1,7 @@
 ---
 title: "First Assignment"
-author: "cccc"
-date: "10/18/2021"
+author: "Sebastian Feist"
+date: "07/31/2024"
 output: html_document
 ---
 
@@ -9,11 +9,19 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Please complete all the tasks listed below. After completing the tasks download the .Rmd file and upload in the peer review item for grading.
+# 1. a bulleted list of three car manufacturers with 2 sub-bullets under all three
 
-# Additionally please write text between the code chunks explaining what each code chunk is about.
+- Peugeot
+  - 208
+  - 308
+- Volkswagen
+  - Polo
+  - Golf
+- Skoda
+  - Fabia
+  - Octavia
+  
 
-1.a bulleted list with sub-bullets under at least one item (10 pt)
 
 2.a numbered list (10 pt)
 
