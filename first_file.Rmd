@@ -84,6 +84,19 @@ knitr::kable(data)
 
 8.a plot (show the code that generates the plot) (10 pt)
 
+```{r}
+# this defines the function
+f <- function(x) {
+  x^2
+}
+
+# now I generate a sequence of x values
+x <- seq(-10, 10)
+
+# this plots the function
+plot(x, f(x), type = "l", xlab = "x", ylab = "f(x)", main = "Plot of x^2")
+```
+
 9.your session info (as output from R) (10 pt)
 
 10.Execution of .Rmd file (10 pt)
