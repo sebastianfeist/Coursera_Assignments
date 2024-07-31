@@ -66,7 +66,21 @@ x <- c(1:6)
 x
 ```
 
-7.a table of text at least 3 columns wide and 3 rows long (10 pt)
+With the chunk option echo you can choose to show or not to show the code. So with echo=false it shows only the value which I assigned x.
+
+7.a table of text at least 3 columns wide and 3 rows long 
+
+```{r}
+
+# this creates a data frame with 3 columns and 3 rows
+data <- data.frame(
+  Column1 = c("1", "2", "3"),
+  Column2 = c("One", "Two", "Three"),
+  Column3 = c("Eins", "Zwei", "Drei")
+)
+# this uses the knitr package to generate the table
+knitr::kable(data)
+```
 
 8.a plot (show the code that generates the plot) (10 pt)
 
