@@ -1,6 +1,9 @@
 ---
 title: "Functions Lab"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 ##### Assignment Instructions
@@ -18,7 +21,25 @@ Review the roll functions from Section 2 in *Hands-On Programming in R*. Using t
 Your function should contain the arguments `max_rolls`, `sides`, and `num_of_dice`. You may wish to set some of the arguments to default values. 
 
 ```{r}
+# load ggplot library for histogramm
+library(ggplot2)
 
+# roll function
+roll <- function(max_rolls = 50000, sides = 1:8, num_of_dice = 3){
+
+  #create the object dice with the given values und probabilities
+  dice <- sample(sides, num_of_dice, replace = TRUE, prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
+  sum(dice)
+  
+  #replicate the dice roll 50000 times and store the result in the object rolls
+  rolls <- replicate
+  
+  qplot(rolls, binwidth =1)
+}
+
+#produce a histrogramm of the results
+
+roll()
 ```
 
 
