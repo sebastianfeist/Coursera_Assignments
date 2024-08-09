@@ -28,7 +28,8 @@ roll <- function(max_rolls = 50000, sides = 1:8, num_of_dice = 3) {
 
   # function to roll three 8 sided dice one time
   roll_once <- function(){
-    dice <- sample(sides, num_of_dice, replace = TRUE, prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
+    dice <- sample(sides, num_of_dice, replace = TRUE,
+                   prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
     sum(dice)
   }
   
@@ -118,7 +119,28 @@ count_na_positions(vec1, vec2)
 Implement a fizzbuzz function. It takes a single number as input. If the number is divisible by three, it returns “fizz”. If it’s divisible by five it returns “buzz”. If it’s divisible by three and five, it returns “fizzbuzz”. Otherwise, it returns the number. 
 
 ```{r}
+fizzbuzz <- function(x) {
+  
+  # check if the number x is divisible by three and five
+  if (x %% 3 == 0 && x %% 5 == 0) {
+    return("fizzbuzz")
+  # check if x is divisible by three  
+  } else if (x %% 3 == 0) {
+    return("fizz")
+  # check if x is divisible by five
+  } else if (x %% 5 == 0) {
+    return("buzz")
+  # otherwise return the number
+  } else {
+    return(x)
+  }
+}
 
+#test run
+fizzbuzz(3)
+fizzbuzz(5)
+fizzbuzz(15)
+fizzbuzz(7)
 ```
 
 
@@ -144,6 +166,19 @@ get_temp_desc <- function(temp) {
 ```
 
 ```{r}
+get_temp_desc <- function(temp) {
+  cut(temp,
+      # definition of breakpoints
+      breaks = c(-Inf, 0, 10, 20, 30, Inf),
+      # name of levels
+      labels = c("freezing", "cold", "cool", "warm", "hot"))
+}
 
+#test run
+get_temp_desc(-5)
+get_temp_desc(5)
+get_temp_desc(15)
+get_temp_desc(25)
+get_temp_desc(35)
 ```
 
