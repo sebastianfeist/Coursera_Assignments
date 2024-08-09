@@ -26,20 +26,20 @@ library(ggplot2)
 # roll function
 roll <- function(max_rolls = 50000, sides = 1:8, num_of_dice = 3) {
 
-  #function to roll three 8 sided dice one time
+  # function to roll three 8 sided dice one time
   roll_once <- function(){
     dice <- sample(sides, num_of_dice, replace = TRUE, prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
     sum(dice)
   }
   
-  #replicate the dice roll 50000 times and store the result in the object rolls
+  # replicate the dice roll 50000 times and store the result in the object rolls
   rolls <- replicate(max_rolls, roll_once())
   
-  #return the value of rolls
+  # return the value of rolls
   return(rolls)
 }
 
-#produce a histogramm of the results
+# produce a histogramm of the results
 qplot(roll(), binwidth =1)
 ```
 
@@ -51,36 +51,36 @@ Write a function, rescale01(), that recieves a vector as an input and checks tha
 Be sure to thoroughly provide test cases. Additionally, ensure to allow your response chunk to return error messages.
 
 ```{r, error=TRUE}
-#function, that rescales vector
+# function, that rescales vector
 rescale01 <- function(x) {
   
-  #check if all inputs are numeric
+  # check if all inputs are numeric
   if (!is.numeric(x)) {
     stop("inputs must all be numeric")
   }
   
-  #map -Inf to 0 und Inf to 1
+  # map -Inf to 0 und Inf to 1
   x[x == -Inf] <- 0
   x[x == Inf] <- 1
   
-  #return rescaled vector
+  # return rescaled vector
   return(x)
 }
 
-#test cases
-  #numeric vector
+# test cases
+  # numeric vector
   a <- c(1, 2, 3, 4, 5)
   
-  #vector with -Inf and Inf
+  # vector with -Inf and Inf
   b <- c(-Inf, 0, 2, 4, Inf)
   
-  #vector with NA value
+  # vector with NA value
   c <- c(NA, 3, 5, 6, 9)
   
-  #non numeric vector
+  # non numeric vector
   d <- c("a", "b", "c")
   
-#test runs
+# test runs
 rescale01(a)
 rescale01(b)
 rescale01(c)
@@ -93,7 +93,23 @@ rescale01(d)
 Write a function that takes two vectors of the same length and returns the number of positions that have an NA in both vectors. If the vectors are not the same length, stop the function and return the message "vectors must be the same length".
 
 ```{r}
+count_na_positions <- function(vec1, vec2) {
+  # check if the vectors are of the same length
+  if (length(vec1) != length(vec2)) {
+    return("vectors must be the same length")
+  }
+  
+  # return the number of positions that have an NA in both vectors
+  na_count <- sum(is.na(vec1) & is.na(vec2))
+  
+  return(na_count)
+}
 
+#test run
+vec1 <- c(1, 2, 3, NA, 5)
+vec2 <- c(NA, 4, 7, NA, 9)
+
+count_na_positions(vec1, vec2)
 ```
 
 
