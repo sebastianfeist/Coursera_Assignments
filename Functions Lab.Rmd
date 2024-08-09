@@ -5,6 +5,9 @@ output:
   html_document:
     df_print: paged
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ##### Assignment Instructions
 
@@ -30,16 +33,13 @@ roll <- function(max_rolls = 50000, sides = 1:8, num_of_dice = 3){
   #create the object dice with the given values und probabilities
   dice <- sample(sides, num_of_dice, replace = TRUE, prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
   sum(dice)
-  
+
   #replicate the dice roll 50000 times and store the result in the object rolls
-  rolls <- replicate
-  
-  qplot(rolls, binwidth =1)
+  rolls <- replicate(max_rolls, dice)
 }
 
-#produce a histrogramm of the results
-
-roll()
+#produce a histogramm of the results
+qplot(rolls, binwidth =1)
 ```
 
 
