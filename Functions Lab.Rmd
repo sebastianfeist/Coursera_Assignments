@@ -5,10 +5,6 @@ output:
   html_document:
     df_print: paged
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ##### Assignment Instructions
 
 Complete all questions below. After completing the assignment, knit your document, and download both your .Rmd and knitted output. Upload your files for peer review. 
@@ -28,18 +24,23 @@ Your function should contain the arguments `max_rolls`, `sides`, and `num_of_dic
 library(ggplot2)
 
 # roll function
-roll <- function(max_rolls = 50000, sides = 1:8, num_of_dice = 3){
+roll <- function(max_rolls = 50000, sides = 1:8, num_of_dice = 3) {
 
-  #create the object dice with the given values und probabilities
-  dice <- sample(sides, num_of_dice, replace = TRUE, prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
-  sum(dice)
-
+  #function to roll three 8 sided dice one time
+  roll_once <- function(){
+    dice <- sample(sides, num_of_dice, replace = TRUE, prob = c(1/10, 1/10, 1/10, 1/10, 1/10, 1/10, 3/10, 1/10))
+    sum(dice)
+  }
+  
   #replicate the dice roll 50000 times and store the result in the object rolls
-  rolls <- replicate(max_rolls, dice)
+  rolls <- replicate(max_rolls, roll_once())
+  
+  #return the value of rolls
+  return(rolls)
 }
 
 #produce a histogramm of the results
-qplot(rolls, binwidth =1)
+qplot(roll(), binwidth =1)
 ```
 
 
@@ -49,8 +50,41 @@ Write a function, rescale01(), that recieves a vector as an input and checks tha
 
 Be sure to thoroughly provide test cases. Additionally, ensure to allow your response chunk to return error messages.
 
-```{r}
+```{r, error=TRUE}
+#function, that rescales vector
+rescale01 <- function(x) {
+  
+  #check if all inputs are numeric
+  if (!is.numeric(x)) {
+    stop("inputs must all be numeric")
+  }
+  
+  #map -Inf to 0 und Inf to 1
+  x[x == -Inf] <- 0
+  x[x == Inf] <- 1
+  
+  #return rescaled vector
+  return(x)
+}
 
+#test cases
+  #numeric vector
+  a <- c(1, 2, 3, 4, 5)
+  
+  #vector with -Inf and Inf
+  b <- c(-Inf, 0, 2, 4, Inf)
+  
+  #vector with NA value
+  c <- c(NA, 3, 5, 6, 9)
+  
+  #non numeric vector
+  d <- c("a", "b", "c")
+  
+#test runs
+rescale01(a)
+rescale01(b)
+rescale01(c)
+rescale01(d)
 ```
 
 
