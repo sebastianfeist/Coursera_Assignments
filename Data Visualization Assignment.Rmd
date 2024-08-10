@@ -24,11 +24,11 @@ knitr::include_graphics("images/question-1.png")
 
 ```{r question-1-response}
 # creating a ggplot from the mpg dataset
-ggplot(data = mpg) +
-  # definition of the point geom
-  geom_point(mapping = aes(x = displ, y = hwy)) +
-  # definition of the smooth geom
-  geom_smooth(mapping = aes(x = displ, y = hwy), se = FALSE)
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  # create a point geom
+  geom_point() +
+  # create a smooth geom for the line
+  geom_smooth(se = FALSE)
 
 ```
 
@@ -41,7 +41,11 @@ knitr::include_graphics("images/question-2.png")
 ```
 
 ```{r question-2-response}
-
+# using the ggplot from the first question
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  # assigning the color for the point geom to drv from the dataset
+  geom_point(mapping = aes(color = drv)) +
+  geom_smooth(se = FALSE)
 ```
 
 ##### Question 3.
