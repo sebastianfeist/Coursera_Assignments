@@ -73,7 +73,11 @@ knitr::include_graphics("images/question-4.png")
 ```
 
 ```{r question-4-response}
-
+# creating ggplot, with cty on x- and hwy on y-axis
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  # creating point geom, which assigns color to class from dataset
+  # added jitter to spread out points
+  geom_point(mapping = aes(color = class), position = "jitter")
 ```
 
 ##### Question 5.
@@ -85,5 +89,11 @@ knitr::include_graphics("images/question-5.png")
 ```
 
 ```{r question-5-response}
-
+# creating ggplot, with hwy on x- and cyl on y-axis
+ggplot(data = mpg, mapping = aes(x = hwy, y = cyl)) +
+  # creating point geom in orange color, the shape of triangles
+  # and adjusted size
+  geom_point(color = "orange", shape = 17, size = 1.5) +
+  # facet the plot by class in 3 rows
+  facet_wrap(~ class, nrow = 3)
 ```
