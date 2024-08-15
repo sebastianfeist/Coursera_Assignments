@@ -59,7 +59,7 @@ Using the nycflights13 dataset, find the most popular destinations (those with m
 
 ```{r question-4-response}
 # find the most popular destinations with more than 2000 flights
-popular_desinations <- flights |>
+popular_destinations <- flights |>
   # group the dataset by destinations
   group_by(dest) |>
   # filter thos out, with more than 2000 flights
@@ -68,10 +68,10 @@ popular_desinations <- flights |>
   select(dest, year, month, day, carrier)
 
 # show results
-popular_desinations
+popular_destinations
 
-# show just the numbere of flights for each popular destination
-popular_desinations |>
+# show just the numbers of flights for each popular destination
+popular_destinations |>
   count(dest) |>
   arrange(desc(n))
 
@@ -82,5 +82,18 @@ popular_desinations |>
 Using the nycflights13 dataset, find the flight information (flight number, origin, destination, carrier, number of flights in the year, and percent late) for the flight numbers with the highest percentage of arrival delays. Only include the flight numbers that have over 100 flights in the year.
 
 ```{r question-5-response}
-
+flights |>
+   # group dataset by flight number, origin, destination, carrier
+  group_by(flight, origin, dest, carrier) |>
+  # summarise flights per year and calculate percent late
+  summarise(
+    num_flights = n(),
+    percent_late = mean(arr_delay > 0, na.rm = TRUE) * 100
+  ) |>
+  # filter out flight numbers with over 100 flights per year
+  filter(num_flights > 100) |> 
+  # arrange from highest to lowest percentage of arrival delays
+  arrange(desc(percent_late)) |>
+  # select required columns
+  select(flight, origin, dest, carrier, num_flights, percent_late)
 ```
