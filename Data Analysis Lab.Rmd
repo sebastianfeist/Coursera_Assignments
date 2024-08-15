@@ -46,7 +46,11 @@ flights |>
 Using the nycflights13 dataset, calculate a new variable called "hr_delay" and arrange the flights dataset in order of the arrival delays in hours (longest delays at the top). Put the new variable you created just before the departure time.Hint: use the experimental argument .before. 
 
 ```{r question-3-response}
-
+flights |>
+  # create new variable hr_delay, putting this before dep_time
+  mutate(hr_delay = arr_delay / 60, .before = dep_time) |>
+  # arrange dataset from longest to shortest delays
+  arrange(desc(hr_delay))
 ```
 
 ##### Question 4.
@@ -54,6 +58,22 @@ Using the nycflights13 dataset, calculate a new variable called "hr_delay" and a
 Using the nycflights13 dataset, find the most popular destinations (those with more than 2000 flights) and show the destination, the date info, the carrier. Then show just the number of flights for each popular destination.
 
 ```{r question-4-response}
+# find the most popular destinations with more than 2000 flights
+popular_desinations <- flights |>
+  # group the dataset by destinations
+  group_by(dest) |>
+  # filter thos out, with more than 2000 flights
+  filter(n() > 2000) |>
+  # select destination, date, carrier
+  select(dest, year, month, day, carrier)
+
+# show results
+popular_desinations
+
+# show just the numbere of flights for each popular destination
+popular_desinations |>
+  count(dest) |>
+  arrange(desc(n))
 
 ```
 
