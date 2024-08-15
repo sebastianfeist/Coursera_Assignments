@@ -10,12 +10,18 @@ Complete all questions below. After completing the assignment, knit your documen
 For each response, include comments detailing your response and what each line does. 
 
 ---
+```{r}
+# loading tidyverse and nycflights
+library(tidyverse)
+library(nycflights13)
+```
 
 ##### Question 1. 
 
 Using the nycflights13 dataset, find all flights that departed in July, August, or September using the helper function between(). 
 
 ```{r question-1-response}
+flights 
 
 ```
 
